@@ -1,87 +1,90 @@
+import Image from "next/image";
 import * as React from "react";
-import FirstBoxComponent from "./firstBoxComponent";
-import SecondBoxComponent from "./secondBoxComponent";
-import FooterComponent from "./footerComponent";
+import box from "../../assets/box.svg";
+import firstBox from "../../assets/firstBox.svg";
+import secondBox from "../../assets/secondBox.svg";
+import thirdBox from "../../assets/thirdBox.svg";
 
-type BlockProps = {
-  imgSrc: string;
+type CardProps = {
+  imgSrc: any;
   imgAlt: string;
   title: string;
   description: string;
   aspectRatio: string;
-  contentAlign?: string;
 };
 
-const Block: React.FC<BlockProps> = ({
+const Card: React.FC<CardProps> = ({
   imgSrc,
   imgAlt,
   title,
   description,
   aspectRatio,
-  contentAlign = "center",
 }) => (
   <div
-    className={`flex overflow-hidden relative flex-col grow p-11 text-${contentAlign} text-white ${aspectRatio} fill-white max-md:px-5 background-overlay`}
+    className={`relative flex flex-col items-center justify-center text-center text-white ${aspectRatio} overflow-hidden`}
+    style={{ padding: "20px" }} // Adjust the padding to fit the text within the image
   >
-    <img
+    <Image
       loading="lazy"
       src={imgSrc}
       alt={imgAlt}
-      className="object-cover absolute inset-0 size-md"
+      className="object-cover absolute inset-0 w-full h-full"
     />
-    <div className="relative text-xl font-bold">{title}</div>
-    <div className="relative mt-7 text-base">{description}</div>
+    <div className="relative z-10 p-5">
+      <div className="text-xl font-bold">{title}</div>
+      <div className="mt-6 text-base">{description}</div>
+    </div>
   </div>
 );
 
-function MyComponent() {
-  const blocksData = [
-    {
-      imgSrc:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/28c3cba796c4df00830dd985c7f75e546218f142840d4fb0d7604198043392d3?apiKey=0c5b52b259714e8c895c0cb50323cb54&",
-      imgAlt: "Understanding needs banner",
-      title: "Understanding needs",
-      description: `We identify who has the problem or need and provide a detailed description of what the problem entails.`,
-      aspectRatio: "aspect-[1.69]",
-    },
-    {
-      imgSrc:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/43116cc2950509c15267b9b2defddcaf055131603d86c7c56aa6c8245ad33457?apiKey=0c5b52b259714e8c895c0cb50323cb54&",
-      imgAlt: "Identifying opportunities banner",
-      title: "Identifying opportunities",
-      description:
-        "Lorem Ipsum is simply dummy text of the printin and typesetting industry. Lorem Ipsum has been the industry's standard...",
-      aspectRatio: "aspect-[1.69]",
-    },
-  ];
-
+const MyComponent: React.FC = () => {
   return (
-    <main className="flex flex-col " style={{ backgroundColor: "black" }}>
-      <section className="w-[100%] max-md:max-w-full ">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0 m-12">
-          <div className="">
-            <FirstBoxComponent
-              title={"Understanding needs"}
-              description={
-                "We identify who has the problem or need and provide a detailed description of what the problem entails."
-              }
+    <main
+      className="flex flex-col min-h-screen justify-between"
+      style={{ backgroundColor: "black" }}
+    >
+      <section className="flex-grow flex items-center justify-center">
+        <div className="flex justify-between w-full px-5">
+          <div className="mt-[-20px]">
+            <Card
+              imgSrc={firstBox}
+              imgAlt="Understanding needs image"
+              title="Understanding needs"
+              description="We identify who has the problem or need and provide a detailed description of what the problem entails."
+              aspectRatio="aspect-[1.54]"
             />
           </div>
-          <div className="">
-            <SecondBoxComponent
-              title={"Identifying opportunities"}
-              description={
-                "Lorem Ipsum is simply dummy text of the printin and typesetting industry. Lorem Ipsum has been the industry's standard..."
-              }
-            />
+          <Card
+            imgSrc={secondBox}
+            imgAlt="Identifying opportunities image"
+            title="Identifying opportunities"
+            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard..."
+            aspectRatio="aspect-[1.74]"
+          />
+          <Card
+            imgSrc={thirdBox}
+            imgAlt="Developing customized solutions image"
+            title="Developing customized solutions"
+            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard..."
+            aspectRatio="aspect-[1.73]"
+          />
+        </div>
+      </section>
+      <section className="flex items-center justify-center px-16 py-8 max-md:px-5">
+        <div className="overflow-hidden relative flex items-center justify-center px-16 pt-8 pb-14 mt-96 max-w-full text-xl font-bold text-center text-teal-400 min-h-[127px] w-[512px] max-md:px-5 max-md:mt-10">
+          <Image
+            loading="lazy"
+            src={box}
+            alt=""
+            className="object-cover absolute inset-0 w-md h-md"
+          />
+          <div className="relative z-10">
+            Below are some of the key technologies we use in our projects:
           </div>
         </div>
       </section>
-      <FooterComponent
-        title={"Below are some of the key technologies we use in our projects:"}
-      />
     </main>
   );
-}
+};
 
 export default MyComponent;
