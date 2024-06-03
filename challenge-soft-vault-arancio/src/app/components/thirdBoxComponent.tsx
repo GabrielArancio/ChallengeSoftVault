@@ -13,7 +13,7 @@ type CardProps = {
   aspectRatio: string;
 };
 
-const Card2: React.FC<CardProps> = ({
+const Card3: React.FC<CardProps> = ({
   imgSrc,
   imgAlt,
   title,
@@ -22,24 +22,19 @@ const Card2: React.FC<CardProps> = ({
 }) => (
   <div
     className={`relative flex flex-col items-center justify-center text-center text-white ${aspectRatio} `}
-    style={{ padding: "3rem" }}
+    style={{ padding: "30px" }}
   >
     <Image
       loading="lazy"
       src={imgSrc}
       alt={imgAlt}
-      className="absolute inset-0 w-full h-full"
+      className=" absolute inset-0 w-full h-full"
     />
-    <div className="relative">
-      <div className="text-xl font-bold font-syne ml-10 mt-10">{title}</div>
-      <div
-        className="mt-6 text-base "
-        style={{ paddingLeft: "1rem", marginLeft: "3.5rem", marginTop: "1rem" }}
-      >
-        {description}
-      </div>
+    <div className="relative z-10 p-5">
+      <div className="text-xl font-bold font-syne ">{title}</div>
+      <div className="mt-4 text-base text-center ml-10">{description}</div>
     </div>
   </div>
 );
 
-export default Card2;
+export default Card3;
