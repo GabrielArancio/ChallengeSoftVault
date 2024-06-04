@@ -13,7 +13,7 @@
 - Se implementó a su vez, la dockerización del proyecto para facilitar su despliegue haciendo uso de node:18.20.3-alpine3.20. (Nota: Se crearon variables de entorno y configuración a modo de ejemplo)
 
 ## Ejecución del proyecto
-- Para ejecutar el proyecto correr el comando npm run dev, el cual levantará el mismo en el puerto 3000 y mostrará por default la página creada. 
+- Para ejecutar el proyecto correr el comando npm install, seguido por npm run dev. Este último levantará el proyecto en el puerto 3000 y mostrará por default la página creada. 
 
 
 ## Agradecimientos
