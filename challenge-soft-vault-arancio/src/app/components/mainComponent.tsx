@@ -4,9 +4,10 @@ import box from "../../assets/box.svg";
 import firstBox from "../../assets/firstBox.svg";
 import secondBox from "../../assets/secondBox.svg";
 import thirdBox from "../../assets/thirdBox.svg";
-import Card1 from "./firstBoxComponent";
-import Card2 from "./secondBoxComponent";
-import Card3 from "./thirdBoxComponent";
+import Card1 from "../reusableComponents/firstBoxComponent";
+import Card2 from "../reusableComponents/secondBoxComponent";
+import Card3 from "../reusableComponents/thirdBoxComponent";
+import FooterComponent from "../reusableComponents/footerComponent";
 
 const MyComponent: React.FC = () => {
   return (
@@ -16,10 +17,7 @@ const MyComponent: React.FC = () => {
     >
       <section className="flex-grow flex items-center justify-center pb-40">
         <div className="flex justify-center items-center align-center px-5 m-10">
-          <div
-            className="w-full h-full "
-            // style={{ position: "absolute", width: "3/4", height: "3/4" }}
-          >
+          <div className="w-full h-full ">
             <Card1
               imgSrc={firstBox}
               imgAlt="Understanding needs image"
@@ -28,10 +26,7 @@ const MyComponent: React.FC = () => {
               aspectRatio="aspect-[1.54]"
             />
           </div>
-          <div
-            className=" w-full h-full"
-            // style={{ position: "absolute", width: "3/4", height: "3/4" }}
-          >
+          <div className=" w-full h-full">
             <Card2
               imgSrc={secondBox}
               imgAlt="Identifying opportunities image"
@@ -40,10 +35,7 @@ const MyComponent: React.FC = () => {
               aspectRatio="aspect-[1.74]"
             />
           </div>
-          <div
-            className=" w-full h-full"
-            // style={{ position: "absolute", width: "3/4", height: "3/4" }}
-          >
+          <div className=" w-full h-full">
             <Card3
               imgSrc={thirdBox}
               imgAlt="Developing customized solutions image"
@@ -55,18 +47,12 @@ const MyComponent: React.FC = () => {
         </div>
       </section>
       <section className="flex items-center justify-center px-16 py-8 max-md:px-5 ">
-        <div className=" relative flex items-center justify-center px-16 pt-8 pb-14 max-w-full text-xl font-bold text-center text-teal-400 min-h-[127px] w-[512px] max-md:px-5 max-md:mt-10">
-          <Image
-            loading="lazy"
-            src={box}
-            alt=""
-            style={{ position: "absolute", width: "100%", height: "100%" }}
-            // className=" absolute inset-0 w-full h-full"
-          />
-          <div className="relative z-10">
-            Below are some of the key technologies we use in our projects:
-          </div>
-        </div>
+        <FooterComponent
+          title={
+            "Below are some of the key technologies we use in our projects:"
+          }
+          imgSrc={box}
+        />
       </section>
     </main>
   );

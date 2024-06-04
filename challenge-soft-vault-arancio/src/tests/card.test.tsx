@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Card1 from "../app/components/firstBoxComponent"; // adjust the import path
+import Card1 from "../app/reusableComponents/firstBoxComponent"; // adjust the import path
 
 describe("Card1 Component", () => {
   it("renders Card1 with correct props", () => {

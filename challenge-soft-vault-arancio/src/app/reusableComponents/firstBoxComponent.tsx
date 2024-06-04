@@ -1,7 +1,7 @@
 import Image from "next/image";
 import * as React from "react";
 
-import styles from "./firstBox.module.css";
+import styles from "../styles/firstBox.module.css";
 
 type CardProps = {
   imgSrc: any;
@@ -27,10 +27,9 @@ const Card1: React.FC<CardProps> = ({
       src={imgSrc}
       alt={imgAlt}
       className={`absolute ${styles.responsiveImg}`}
-      // style={{ height: "100%", width: "100%" }}
     />
     <div className="relative">
-      <div className="text-xl font-bold font-syne ml-10">{title}</div>
+      <div className="text-xl font-bold font-syne ">{title}</div>
       <div className=" text-base " style={{ marginTop: "1rem" }}>
         {description}
       </div>
